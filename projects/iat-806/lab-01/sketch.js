@@ -1,21 +1,24 @@
-// An example sketch, so the page has something to show.
-// Delete all of this and write your own.
-
 function setup() {
-  const canvas = createCanvas(600, 400);
-
-  // Puts the canvas inside the <div id="sketch-holder"> in index.html,
-  // instead of dropping it at the bottom of the page.
-  canvas.parent("sketch-holder");
+  createCanvas(600, 600);
 }
 
 function draw() {
-  background(253, 253, 251);
-
+  background(255);
+  fill(255, 0, 0);
   noStroke();
-  fill(47, 79, 216);
-  circle(width / 2, height / 2, 160);
+  square(150, 0, 450);
 
-  fill(255, 180, 60);
-  circle(mouseX, mouseY, 40);
+  fill(0, 0, 255);
+  square(0, 450, 150);
+
+  fill(255, 255, 0);
+  rect(510, 525, 90, 75);
+
+  stroke(0);
+  strokeWeight(20);
+  line(150, 0, 150, 600);
+  line(0, 170, 150, 170);
+  line(0, 450, 600, 450);
+  line(510, 450, 510, 600);
+  line(510, 525, 600, 525);
 }
