@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lab 02 — Brun Stöver</title>
+
+    <!-- Three folders deep, so three levels up to the stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+
+    <!-- p5.js, version 2.3.3. Every sketch page needs this line. -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+
+    <!-- Your code. Keep this line last. -->
+    <script src="sketch.js"></script>
+  </head>
+  <body>
+    <header>
+      <a class="site-name" href="../../../index.html">Brun Stöver</a>
+      <nav>
+        <a href="../../../index.html">Home</a>
+        <a href="../../index.html">Projects</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="../index.html">&larr; IAT 806</a>
+
+      <h1>Lab 02 — Moving Circle</h1>
+      <p class="tagline">
+        A circle bouncing off the edges of the canvas. Interact by clicking.
+      </p>
+
+      <!-- The canvas p5 creates gets placed right here. -->
+      <div id="sketch-holder"></div>
+
+      <h2>Notes</h2>
+      <p>
+        It was difficult to write the colour changing part. The random()
+        function gave a float, but I needed an integer. I've used floor() to
+        circumvent this. The random direction on click actually uses the float
+        by allowing more range for the circle's speed.
+      </p>
+    </main>
+
+    <footer>
+      <p><a href="../index.html">&larr; Back to IAT 806</a></p>
+    </footer>
+  </body>
+</html>
