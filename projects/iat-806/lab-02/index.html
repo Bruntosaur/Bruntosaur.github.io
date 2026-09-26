@@ -39,7 +39,10 @@
         It was difficult to write the colour changing part. The random()
         function gave a float, but I needed an integer. I've used floor() to
         circumvent this. The random direction on click actually uses the float
-        by allowing more range for the circle's speed.
+        by allowing more range for the circle's speed. Growing and shrinking the
+        ball gave some problems with the border collision. By nesting another if
+        statment within the border collision the program 'checks' whether the
+        ball is moving towards the wall it is colliding with.
       </p>
     </main>
 
