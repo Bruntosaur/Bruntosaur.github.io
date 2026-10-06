@@ -32,6 +32,11 @@ let layers = [
 async function setup() {
   createCanvas(600, 600);
 
+  for (let i = 0; i < numSounds; i++) {
+    let fileName = "sounds/sound" + i + ".wav";
+    sounds.push(await createAudio(fileName));
+  }
+
   for (let i = 0; i < numFrames; i++) {
     let fileName = "climber_frames/climber" + i + ".png";
     frames.push(await loadImage(fileName));
@@ -39,11 +44,6 @@ async function setup() {
 
   for (let layer of layers) {
     layer.img = await loadImage(layer.file);
-  }
-
-  for (let i = 0; i < numSounds; i++) {
-    let fileName = "sounds/sound" + i + ".wav";
-    sounds.push(await createAudio(fileName));
   }
 
   sounds[0].volume(0.4);
@@ -71,22 +71,23 @@ function draw() {
   }
   let index = slowFrame % frames.length;
 
-  if (climberX < 150 && keyIsDown(RIGHT_ARROW)) {
-    climberX++;
-  }
-  if (climberX > -150 && keyIsDown(LEFT_ARROW)) {
-    climberX--;
+  if (moving == true) {
+    if (climberX < 150 && keyIsDown(RIGHT_ARROW)) {
+      climberX++;
+    }
+    if (climberX > -150 && keyIsDown(LEFT_ARROW)) {
+      climberX--;
+    }
+
+    if (climberY < height / 2 && keyIsDown(DOWN_ARROW)) {
+      climberY++;
+    }
+    if (climberY > -height / 2 && keyIsDown(UP_ARROW)) {
+      climberY--;
+    }
   }
 
-  if (climberY < height / 2 && keyIsDown(DOWN_ARROW)) {
-    climberY++;
-  }
-  if (climberY > -height / 2 && keyIsDown(UP_ARROW)) {
-    climberY--;
-  }
-
-  if (index == 4 || (index == 6 && moving == true)) {
-    console.log(index);
+  if ((index == 4 || index == 6) && moving == true && !sounds[0].playing) {
     sounds[0].play();
   }
 
@@ -98,7 +99,6 @@ document.addEventListener("keydown", (e) => e.preventDefault());
 function mousePressed() {
   moving = false;
   sounds[1].pause();
-  sounds[0].pause();
 }
 
 function mouseReleased() {
