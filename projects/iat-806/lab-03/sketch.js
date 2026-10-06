@@ -1,7 +1,10 @@
 let frames = [];
+let sounds = [];
 let numFrames = 7;
+let numSounds = 2;
 let slowFrame;
 let climberX = 0;
+let climberY = 0;
 let speed = 9.2;
 let moving = true;
 let bgm;
@@ -38,10 +41,16 @@ async function setup() {
     layer.img = await loadImage(layer.file);
   }
 
-  bgm = createAudio("stal.wav");
-  bgm.play();
-  bgm.loop();
-  bgm.volume(0.5);
+  for (let i = 0; i < numSounds; i++) {
+    let fileName = "sounds/sound" + i + ".wav";
+    sounds.push(await createAudio(fileName));
+  }
+
+  sounds[0].volume(0.4);
+
+  sounds[1].play();
+  sounds[1].loop();
+  sounds[1].volume(0.5);
 }
 
 function draw() {
@@ -69,17 +78,28 @@ function draw() {
     climberX--;
   }
 
-  image(frames[index], climberX, 0);
+  if (climberY < height / 2 && keyIsDown(DOWN_ARROW)) {
+    climberY++;
+  }
+  if (climberY > -height / 2 && keyIsDown(UP_ARROW)) {
+    climberY--;
+  }
 
-  console.log(index);
+  if (index == 4 || (index == 6 && moving == true)) {
+    console.log(index);
+    sounds[0].play();
+  }
+
+  image(frames[index], climberX, climberY);
 }
 
 function mousePressed() {
   moving = false;
-  bgm.pause();
+  sounds[1].pause();
+  sounds[0].pause();
 }
 
 function mouseReleased() {
   moving = true;
-  bgm.play();
+  sounds[1].play();
 }
