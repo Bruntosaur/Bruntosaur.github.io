@@ -93,6 +93,8 @@ function draw() {
   image(frames[index], climberX, climberY);
 }
 
+document.addEventListener("keydown", (e) => e.preventDefault());
+
 function mousePressed() {
   moving = false;
   sounds[1].pause();
