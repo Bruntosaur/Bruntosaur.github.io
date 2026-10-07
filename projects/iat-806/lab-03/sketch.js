@@ -87,10 +87,6 @@ function draw() {
     }
   }
 
-  if ((index == 4 || index == 6) && moving == true && !sounds[0].playing) {
-    sounds[0].play();
-  }
-
   image(frames[index], climberX, climberY);
 }
 
@@ -99,6 +95,7 @@ document.addEventListener("keydown", (e) => e.preventDefault());
 function mousePressed() {
   moving = false;
   sounds[1].pause();
+  sounds[0].play();
 }
 
 function mouseReleased() {
