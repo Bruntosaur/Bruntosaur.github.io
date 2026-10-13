@@ -177,9 +177,7 @@ function gameOver() {
   text("CLICK TO RETRY", width / 2, height / 3 + 2 * margin);
   textAlign(LEFT);
   textSize(25);
-  stroke(255);
   line(width / 3, height / 3 - margin, (width / 3) * 2, height / 3 - margin);
-  stroke(0);
 }
 
 //Only reset the game if lives > 2
