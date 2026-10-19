@@ -1,3 +1,21 @@
+//sets up a function that will be called whenever the event is delivered
+window.addEventListener(
+  //every time a keydown event fires anywhere on the page
+  "keydown",
+  //the browser hands the function an event
+  (event) => {
+    //a list of arrow keys we can check event.key against
+    const arrows = ["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"];
+    //if the arrows provided match the event
+    if (arrows.includes(event.key)) {
+      //original function should not be called
+      event.preventDefault();
+    }
+  },
+  //prevents this listener from being ignored
+  { passive: false },
+);
+
 let myball;
 let balls = [];
 let numberOfBalls = 500;
@@ -31,11 +49,14 @@ function draw() {
   background(2, 3, 10);
   for (let ball of balls) {
     ball.move(xSpeed, ySpeed);
+    ball.speed();
+    ball.slow();
     ball.show();
   }
 }
 
 class Ball {
+  //construct the ball with its unique variables
   constructor(x, y, c, r) {
     this.x = x;
     this.y = y;
@@ -69,6 +90,40 @@ class Ball {
     this.shine = this.r + random(0, this.r);
   }
 
+  speed() {
+    //add or subtract a tiny amount of speed per frame the key is down
+    if (keyIsDown(LEFT_ARROW)) {
+      xSpeed += 0.001;
+    }
+    if (keyIsDown(RIGHT_ARROW)) {
+      xSpeed -= 0.001;
+    }
+    if (keyIsDown(UP_ARROW)) {
+      ySpeed += 0.001;
+    }
+    if (keyIsDown(DOWN_ARROW)) {
+      ySpeed -= 0.001;
+    }
+  }
+
+  slow() {
+    if (mouseIsPressed === true) {
+      //bring speed towards 0 by a tiny amount every frame mouse is pressed
+      if (xSpeed < 0) {
+        xSpeed += 0.001;
+      }
+      if (xSpeed > 0) {
+        xSpeed -= 0.001;
+      }
+      if (ySpeed < 0) {
+        ySpeed += 0.001;
+      }
+      if (ySpeed > 0) {
+        ySpeed -= 0.001;
+      }
+    }
+  }
+
   show() {
     //set the opacity lower to draw the shine around the ball
     this.color.setAlpha(125);
@@ -80,26 +135,4 @@ class Ball {
     fill(this.color);
     circle(this.x, this.y, this.r);
   }
-}
-//keypresses determine the speed with which the objects move through the canvas
-function keyPressed() {
-  if (key === LEFT_ARROW) {
-    xSpeed++;
-  }
-  if (key === UP_ARROW) {
-    ySpeed++;
-  }
-  if (key === RIGHT_ARROW) {
-    xSpeed--;
-  }
-  if (key === DOWN_ARROW) {
-    ySpeed--;
-  }
-
-  return false;
-}
-
-function mousePressed() {
-  xSpeed = 0;
-  ySpeed = 0;
 }
