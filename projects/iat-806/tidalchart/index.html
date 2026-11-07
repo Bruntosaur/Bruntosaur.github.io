@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lab 05 — Brun Stöver</title>
+    <title>Project 0.1 — Brun Stöver</title>
 
     <!-- Three folders deep, so three levels up to the stylesheet -->
     <link rel="stylesheet" href="../../../style.css" />
@@ -12,11 +12,12 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
 
     <!-- Your code. Keep this line last. -->
+    <script src="Wave.js"></script>
     <script src="sketch.js"></script>
   </head>
   <body>
     <header>
-      <a class="site-name" href="../../../index.html">Brun Stöver</a>
+      <a class="site-name" href="../../index.html">Brun Stöver</a>
       <nav>
         <a href="../../../index.html">Home</a>
         <a href="../../index.html">Projects</a>
@@ -26,17 +27,17 @@
     <main>
       <a class="back" href="../index.html">&larr; IAT 806</a>
 
-      <h1>Lab 05 — Starry Night</h1>
-      <p class="tagline">In various shades of blue and pink</p>
+      <h1>Project 0.1 — Tidal API Readouts</h1>
+      <p class="tagline">Courtesy of the IWLS</p>
 
       <!-- The canvas p5 creates gets placed right here. -->
       <div id="sketch-holder"></div>
 
       <h2>Notes</h2>
       <p>
-        The night sky with no cloud in sight! The stars gently flicker as they
-        appear into view. You can adjust the speed of the display through the
-        arrow keys. Hold down left mouse button to stop movement alltogether.
+        Every minute this program requests the water level from tidal station
+        Ambleside. Chart datum is the lowest normal astronomical tide, meaning
+        water levels will rarely go below zero meters.
       </p>
     </main>
 
