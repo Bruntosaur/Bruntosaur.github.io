@@ -9,7 +9,7 @@ let options = {
 let segmentation;
 
 async function setup() {
-  const canvas = createCanvas(640, 480);
+  createCanvas(640, 480);
 
   //create a webcam video
   video = createCapture(VIDEO);
