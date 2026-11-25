@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project 0.2 — Brun Stöver</title>
+
+    <!-- Three folders deep, so three levels up to the stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+
+    <!-- p5.js, version 2.3.3. Every sketch page needs this line. -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script>
+
+    <!-- Your code. Keep this line last. -->
+    <script src="Class.js"></script>
+    <script src="sketch.js"></script>
+  </head>
+  <body>
+    <header>
+      <a class="site-name" href="../../index.html">Brun Stöver</a>
+      <nav>
+        <a href="../../../index.html">Home</a>
+        <a href="../../index.html">Projects</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back" href="../index.html">&larr; IAT 806</a>
+
+      <h1>Project 0.2 — Raspberry pi controls</h1>
+      <p class="tagline">Through a rotary encoder and a LCD</p>
+
+      <!-- The canvas p5 creates gets placed right here. -->
+      <div id="sketch-holder"></div>
+
+      <h2>Notes</h2>
+      <p>
+        Through a websocket this program reads the input of a rotary encoder
+        that is connected to a raspberry pi. The data is made ready for its
+        comparisson with the tidal data. The data is then sent back through the
+        websocket to the raspberry pi to be displayed on an LCD.
+      </p>
+    </main>
+
+    <footer>
+      <p>
+        <a href="../index.html">&larr; Back to IAT 806</a> -
+        <a
+          href="https://github.com/Bruntosaur/Bruntosaur.github.io/tree/a16dea6dd09a53275a944822285ba7103306db7e/projects/iat-806/controller"
+          >Link to Repository</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
